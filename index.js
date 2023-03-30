@@ -19,10 +19,18 @@ function randomCloud(clouds){
     if (cloudSelect === lastCloud){
         return randomCloud(clouds) // la recursion
     }
+    lastCloud = cloudSelect;
+
     return cloudSelect;
 }
 
 function showHead() {
     const time = randomTime(600, 1000); // time en milliseconde
     const cloud = randomCloud(clouds)
+    cloud.classList.add('up')
+    setTimeout(() => {
+        if (!timeUp) showHead()
+        
+        cloud.classList.remove('up')
+    }, time)
 }

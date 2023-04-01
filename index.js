@@ -1,6 +1,6 @@
-const clouds = document.querySelectorAll('.hole')
-const scoreBoard = document.querySelector('.score')
-const heads = document.querySelectorAll('.head');
+const clouds = document.querySelectorAll(".hole")
+const scoreBoard = document.querySelector(".score")
+const heads = document.querySelectorAll(".head");
 
 
 let lastCloud;
@@ -14,7 +14,7 @@ function randomTime (min, max){
 }
 
 function randomCloud(clouds){
-    const indexCloud = math.floor(Math.random() * clouds.length);
+    const indexCloud = Math.floor(Math.random() * clouds.length);
     const cloudSelect = clouds[indexCloud];
     if (cloudSelect === lastCloud){
         return randomCloud(clouds) // la recursion
@@ -27,10 +27,12 @@ function randomCloud(clouds){
 function showHead() {
     const time = randomTime(600, 1000); // time en milliseconde
     const cloud = randomCloud(clouds)
-    cloud.classList.add('up')
+    cloud.classList.add("up")
     setTimeout(() => {
         if (!timeUp) showHead()
         
-        cloud.classList.remove('up')
-    }, time)
+        cloud.classList.remove("up")
+    }, time);
 }
+
+showHead();

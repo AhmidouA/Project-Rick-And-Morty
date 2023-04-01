@@ -90,4 +90,60 @@ function startGame () {
     }, 10000) // time en milliseconde (10seconde)
 }
 
-startGame()
+
+
+
+
+/****************************/
+/**** Level Game ****/
+/****************************/
+
+const speed = 50;
+
+let i=0;
+let easy = "EASY"
+
+let j=0;
+let medium = "MEDIUM"
+
+let k=0;
+let expert = "EXPERT"
+
+function easyLevel(){
+    if(i< easy.length) {
+        document.getElementById("demo1").textContent += easy.charAt(i);
+        i++
+
+        setTimeout(easyLevel, speed)
+    }
+};
+console.log("easyLevel>>>>>>", easyLevel)
+
+
+function mediumLevel(){
+    if(j<medium.length) {
+        document.getElementById("demo2").textContent += medium.charAt(j);
+        j++
+
+        setTimeout(mediumLevel, speed)
+    }
+};
+
+function expertlevel(){
+    if(k<easy.length) {
+        document.getElementById("demo3").textContent += expert.charAt(k);
+        k++
+
+        setTimeout(expertlevel, speed)
+    }
+};
+
+
+const morty = document.getElementById('morty-play')
+
+morty.addEventListener("click", function(){
+    easyLevel();
+    mediumLevel();
+    expertlevel();
+})
+

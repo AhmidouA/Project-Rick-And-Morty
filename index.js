@@ -63,4 +63,31 @@ function playerScore(event){
 // il sera excuté juste au clic grace a l'event
 heads.forEach(head => head.addEventListener("click", playerScore)); 
 
-showHead()
+
+
+
+
+
+/****************************/
+/**** Start Game ****/
+/****************************/
+
+
+
+function startGame () {
+    scoreBoard.textContent = 0;
+    let score = 0;
+    timeUp = false;
+    showHead()
+    setTimeout(()=> {
+        timeUp= true // le jeu s'arrete
+
+        setTimeout(()=> {
+            // je créer un délai de deux seconde pour que l'user voit son score avant d'ecrire END
+            scoreBoard.textContent = "End"
+            }, 3000) // au bout de 3seconde
+
+    }, 10000) // time en milliseconde (10seconde)
+}
+
+startGame()

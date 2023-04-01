@@ -1,3 +1,7 @@
+/****************************/
+/**** Init and Cloud  ****/
+/****************************/
+
 const clouds = document.querySelectorAll(".hole")
 const scoreBoard = document.querySelector(".score")
 const heads = document.querySelectorAll(".head");
@@ -35,4 +39,28 @@ function showHead() {
     }, time);
 }
 
-showHead();
+
+
+
+/****************************/
+/**** Score ****/
+/****************************/
+
+function playerScore(event){
+    console.log("event>>>>", event)
+    if (!event.isTrusted) {
+        return;
+        }
+
+    score++;
+    // this = head
+    this.classList.remove("up")
+    console.log("score>>>>", score)
+    scoreBoard.textContent = score
+}
+
+// j'appel juste la fonction playerScore et je ne l'excute pas 
+// il sera excuté juste au clic grace a l'event
+heads.forEach(head => head.addEventListener("click", playerScore)); 
+
+showHead()
